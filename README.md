@@ -13,3 +13,4 @@
 - Scene Builder<br>
 - mySQL<br>
 - Maven<br>
+- Continuous Integration (CI) [Java with Maven tool]<br>

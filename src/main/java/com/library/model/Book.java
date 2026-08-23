@@ -1,14 +1,15 @@
 package com.library.model;
 
 public class Book {
+
     private String bookID;
     private String bookName;
-    private String Author;
+    private String author;
     private int ISBN;
-    private String Category;
-    private String Publisher;
+    private String category;
+    private String publisher;
     private int publisherYear;
-    private int Quantity;
+    private int quantity;
     private int availableQuantity;
     private String shelfLocation;
 
@@ -27,7 +28,7 @@ public class Book {
     }
 
     public String getAuthor() {
-        return Author;
+        return author;
     }
 
     public int getISBN() {
@@ -35,11 +36,11 @@ public class Book {
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public String getPublisher() {
-        return Publisher;
+        return publisher;
     }
 
     public int getPublisherYear() {
@@ -47,7 +48,7 @@ public class Book {
     }
 
     public int getQuantity() {
-        return Quantity;
+        return quantity;
     }
 
     public int getAvailableQuantity() {
@@ -68,28 +69,28 @@ public class Book {
         this.bookName = bookName;
     }
 
-    public void setAuthor(String Author) {
-        this.Author = Author;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setISBN(int ISBN) {
         this.ISBN = ISBN;
     }
 
-    public void setCategory(String Category) {
-        this.Category = Category;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public void setPublisher(String Publisher) {
-        this.Publisher = Publisher;
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
     }
 
     public void setPublisherYear(int publisherYear) {
         this.publisherYear = publisherYear;
     }
 
-    public void setQuantity(int Quantity) {
-        this.Quantity = Quantity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public void setAvailableQuantity(int availableQuantity) {
