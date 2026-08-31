@@ -36,6 +36,7 @@ public class Lone {
     public String getDueDate() {
         return dueDate;
     }
+
     public String getReturnDate() {
         return returnDate;
     }
@@ -46,8 +47,32 @@ public class Lone {
 
     // Setter
 
+
+    public void setLoneID(String loneID) {
+        this.loneID = loneID;
+    }
+
+    public void setMemberID(String memberID) {
+        this.memberID = memberID;
+    }
+
     public void setBookID(String bookID) {
         this.bookID = bookID;
     }
 
+    public void setIssueDate(String issueDate) {
+        this.issueDate = issueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
+    }
+
+    public void setReturnDate(String returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
