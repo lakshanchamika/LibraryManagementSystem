@@ -9,12 +9,12 @@ public class User {
     private String jobRole;
     private String status;
 
+    //Constructor
     public User() {
 
     }
 
     // Getter
-
     public String getUserID() {
         return userID;
     }
@@ -40,7 +40,6 @@ public class User {
     }
 
     // Setter
-
     public void setUserID(String userID) {
         this.userID = userID;
     }

@@ -11,12 +11,12 @@ public class Member {
     private String registrationDate;
     private boolean active;
 
+    //Constructor
     public Member() {
 
     }
 
     // Getter
-
     public String getMemberID() {
         return memberID;
     }
@@ -50,8 +50,6 @@ public class Member {
     }
 
     // Setter
-
-
     public void setMemberID(String memberID) {
         this.memberID = memberID;
     }

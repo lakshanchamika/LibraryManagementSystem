@@ -13,12 +13,12 @@ public class Book {
     private int availableQuantity;
     private String shelfLocation;
 
+    //Constructor
     public Book() {
 
     }
 
     // Getter
-
     public String getBookID() {
         return bookID;
     }
@@ -60,7 +60,6 @@ public class Book {
     }
 
     //Setter
-
     public void setBookID(String bookID) {
         this.bookID = bookID;
     }

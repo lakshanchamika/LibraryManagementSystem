@@ -10,13 +10,12 @@ public class Lone {
     private String returnDate;
     private String status;
 
-
+    //Constructor
     public Lone() {
 
     }
 
     // Getter
-
     public String getLoneID() {
         return loneID;
     }
@@ -46,8 +45,6 @@ public class Lone {
     }
 
     // Setter
-
-
     public void setLoneID(String loneID) {
         this.loneID = loneID;
     }
