@@ -1,0 +1,47 @@
+package com.library.dao;
+
+
+import com.library.database.DatabaseConnection;
+import com.library.model.Book;
+
+import java.sql.*;
+
+import java.sql.Connection;
+
+public class BookDAO {
+    //Add new book
+    public boolean save(Book book) {
+        String sql = """
+                INSERT INTO books
+                (bookID, bookName, author, ISBN, category, publisher, publisherYear, quantity, availableQuantity,shelfLocation)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                """;
+
+        try (
+                Connection connection = DatabaseConnection.getConnection();
+                PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+
+            statement.setString(1,book.getBookID());
+            statement.setString(2, book.getBookName());
+            statement.setString(3, book.getAuthor());
+            statement.setInt(4,book.getISBN());
+            statement.setString(5, book.getCategory());
+            statement.setString(6,book.getPublisher());
+            statement.setInt(7,book.getPublisherYear());
+            statement.setInt(8,book.getQuantity());
+            statement.setInt(9,book.getAvailableQuantity());
+            statement.setString(10,book.getShelfLocation());
+
+            int raw = statement.executeUpdate();
+            return raw > 0;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    //Get book ID by
+
+}
