@@ -44,4 +44,29 @@ public class BookDAO {
 
     //Get book ID by
 
+    public Book getBookById(String bookID) {
+        String sql = """
+                SELECT * FROM books
+                WHERE bookID = ?
+                """;
+
+        try(Connection connection = DatabaseConnection.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)
+        ) {
+            statement.setString(1,bookID);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                return createBoookFromResultSet(resultSet);
+            }
+
+        } catch(SQLException e) {
+            e.printStackTrace();
+
+        }
+        return null;
+
+    }
+
 }
