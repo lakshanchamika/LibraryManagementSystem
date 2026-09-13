@@ -4,9 +4,12 @@ package com.library.dao;
 import com.library.database.DatabaseConnection;
 import com.library.model.Book;
 
-import java.sql.*;
-
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class BookDAO {
     //Add new book
@@ -18,8 +21,10 @@ public class BookDAO {
                 """;
 
         try (
-                Connection connection = DatabaseConnection.getConnection();
-                PreparedStatement statement = connection.prepareStatement(sql)
+                Connection connection =
+                        DatabaseConnection.getConnection();
+                PreparedStatement statement =
+                        connection.prepareStatement(sql)
         ) {
 
             statement.setString(1,book.getBookID());
@@ -50,8 +55,10 @@ public class BookDAO {
                 WHERE bookID = ?
                 """;
 
-        try(Connection connection = DatabaseConnection.getConnection();
-            PreparedStatement statement = connection.prepareStatement(sql)
+        try(Connection connection =
+                    DatabaseConnection.getConnection();
+            PreparedStatement statement =
+                    connection.prepareStatement(sql)
         ) {
             statement.setString(1,bookID);
 
@@ -66,6 +73,36 @@ public class BookDAO {
 
         }
         return null;
+
+    }
+
+    //Get all books
+    public List<Book> getAllBook() {
+        List<Book> bookList = new ArrayList();
+
+        String sql =
+                "SELECT * FROM books";
+
+        try (
+                Connection connection =
+                        DatabaseConnection.getConnection();
+                PreparedStatement statement =
+                        connection.prepareStatement(sql);
+                ResultSet resultSet =
+                        statement.executeQuery();
+                ) {
+
+            while (resultSet.next()) {
+                Book book = createBookFromResultSet(resultSet);
+                bookList.add(book);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+
+        }
+
+        return bookList;
 
     }
 
