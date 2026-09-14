@@ -106,4 +106,55 @@ public class BookDAO {
 
     }
 
+
+    public boolean updateBook(Book book) {
+
+        String sql = """
+                UPDATE books
+                SET
+                    bookName = ?,
+                    author = ?,
+                    ISBN = ?,
+                    category = ?,
+                    publisher = ?,
+                    publisherYear = ?,
+                    quantity = ?,
+                    availableQuantity = ?,
+                    shelfLocation = ?
+                WHERE bookID = ?
+                """;
+
+        try (
+                Connection connection =
+                        DatabaseConnection.getConnection();
+
+                PreparedStatement statement =
+                        connection.prepareStatement(sql)
+        ) {
+
+            statement.setString(1, book.getBookName());
+            statement.setString(2, book.getAuthor());
+            statement.setString(3, book.getISBN());
+            statement.setString(4, book.getCategory());
+            statement.setString(5, book.getPublisher());
+            statement.setInt(6, book.getPublisherYear());
+            statement.setInt(7, book.getQuantity());
+            statement.setInt(8, book.getAvailableQuantity());
+            statement.setString(9, book.getShelfLocation());
+
+            statement.setString(10, book.getBookID());
+
+            int rowsAffected =
+                    statement.executeUpdate();
+
+            return rowsAffected > 0;
+
+        } catch (SQLException exception) {
+
+            exception.printStackTrace();
+
+            return false;
+        }
+    }
+
 }
